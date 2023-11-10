@@ -1,0 +1,24 @@
+<div class="container mt-4">
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    <div class="col" *ngFor="let list of lists">
+      <div class="card h-100">
+        <div class="card-body">
+          <div class="dropdown">
+            <button class="btn btn-primary dropdown-toggle float-end list-edit-btn" type="button"
+              id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"></button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              <li><a class="dropdown-item" [routerLink]="['/tasks', list.listID]">View Tasks</a></li>
+              <li><a class="dropdown-item" [routerLink]="['/edit-list', list.listID]">Edit</a></li>
+              <li><a class="dropdown-item" href="#" (click)="deleteList(list)">Delete</a></li>
+            </ul>
+            <h5 class="card-title">{{ list.list_title }}</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #noListsTemplate>
+  <p>No lists found.</p>
+</ng-template>

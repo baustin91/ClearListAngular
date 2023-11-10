@@ -1,0 +1,35 @@
+<div class="container mt-4">
+  <div class="row justify-content-center">
+    <div class="col-lg-6">
+      <div class="card">
+        <div class="card-body">
+          <h2 class="card-title">Login</h2>
+          <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
+            <div class="form-group">
+              <label for="username">Username:</label>
+              <input type="text" id="username" class="form-control" [(ngModel)]="username" name="username"
+                #usernameInput="ngModel" required />
+            </div>
+            <div class="form-group">
+              <label for="password">Password:</label>
+              <input type="password" id="password" class="form-control" name="password" #passwordInput />
+            </div>
+            <button type="submit" class="btn btn-primary float-end" [disabled]="!loginForm.valid">
+              Log in
+            </button>
+          </form>
+
+          <!-- Display User ID if available -->
+          <div *ngIf="userId; else userNotFoundTemplate" class="user-id-display">
+            <p>User ID: {{ userId }}</p>
+          </div>
+
+          <!-- Template for when the user is not found -->
+          <ng-template #userNotFoundTemplate>
+            <p *ngIf="userNotFound" class="user-id-display">No user found</p>
+          </ng-template>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

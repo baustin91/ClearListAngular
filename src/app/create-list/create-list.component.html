@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="row justify-content-center mt-5">
+    <div class="col-sm-6">
+      <div class="card">
+        <div class="card-body">
+          <h2 class="card-title">Create New List</h2>
+          <form (ngSubmit)="createList()">
+            <div class="mb-3">
+              <label for="listTitle" class="form-label">List Title</label>
+              <input type="text" class="form-control" id="listTitle" [(ngModel)]="listTitle" name="listTitle" required>
+            </div>
+            <button type="submit" class="btn btn-primary float-end">Create List</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

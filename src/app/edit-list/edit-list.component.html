@@ -1,0 +1,21 @@
+<div class="container mt-4">
+  <div class="row justify-content-center">
+    <div class="col-sm-6">
+      <div class="card">
+        <div class="card-body">
+          <h2 class="card-title">Edit List</h2>
+          <form #editListForm="ngForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+              <label for="listTitle">New List Title</label>
+              <input type="text" [(ngModel)]="list.list_title" name="listTitle" id="listTitle" class="form-control"
+                required />
+            </div>
+            <button type="submit" class="btn btn-primary float-end" [disabled]="!editListForm.form.valid">
+              Update
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

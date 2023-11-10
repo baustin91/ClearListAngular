@@ -1,0 +1,28 @@
+<div class="container">
+  <div *ngIf="tasks.length > 0; else noTasks" class="row justify-content-center mt-5">
+    <div *ngFor="let task of tasks" class="col-sm-7 mb-3">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">{{ task.task_title }}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">Due: {{ task.due_date | date:'mediumDate' }}</h6>
+          <p class="card-text">{{ task.task_note }}</p>
+          <button class="btn btn-primary float-end" (click)="completeTask(task.taskID)">Complete Task</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #noTasks>
+  <div class="container">
+    <div class="row justify-content-center mt-5">
+      <div class="col-sm-6">
+        <div class="card">
+          <div class="card-body">
+            <h2 class="text-center">No tasks found for this list.</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>
